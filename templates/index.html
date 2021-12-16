@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+<title>Web Resourses</title>
+{% endblock %}
+
+{% block body  %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Resourses catalog</h1>
+      <p class="fs-5 text-muted"> search anything you want</p>
+    <form action="/">
+        <br><input type="text" class="form-control" name="searchField" placeholder="Search request"><br>
+        <input type="submit" class="w-50 btn btn-lg btn-outline-primary" value="Search">
+    </form>
+</div>
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  {% for el in data %}
+
+
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/1225905589236011008/X2RKynNG_400x400.jpg" >
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"> {{ el.title }} </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{ el.text }}</li>
+            </ul>
+            <a type="button" class="w-100 btn btn-lg btn-outline-primary" href="{{ el.link }}" > go</a>
+          </div>
+        </div>
+      </div>
+
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
